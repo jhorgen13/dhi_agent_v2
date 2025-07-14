@@ -1,0 +1,41 @@
+# .github/workflows/ci.yml
+
+name: Multi-Agent CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
+      LANGSMITH_PROJECT: ce0644ab-5c9d-4292-97dd-61a908799769
+      LANGSMITH_TRACING: true
+      LANGSMITH_ENDPOINT: https://api.smith.langchain.com
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}  # Leave this as a secret if used for eval
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          pip install pytest python-dotenv
+
+      - name: Run Pytest
+        run: |
+          source venv/bin/activate
+          pytest tests/test_agents.py
+
+      - name: Run LangSmith Evaluation
+        if: github.ref == 'refs/heads/main'
+        run: |
+          source venv/bin/activate
+          python tests/eval_langsmith.py

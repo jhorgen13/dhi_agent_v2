@@ -1,0 +1,30 @@
+Facilities,2017,2018,2019,2020,2021
+Number of Hospitals 1,32,33,54,58,58
+*Sub Category* Public Hospitals,26,27,48,52,52
+*Sub Category* RBA Hospitals,2,2,2,2,2
+*Sub Category* Indigenous Hospital,1,1,1,1,1
+*Sub Category* IMTART Hospitals,3,3,3,3,3
+Number of Primary Health Centers 2,208,209,186,182,179
+Number of Outreach Clinics 3,551,551,542,552,555
+Number of Indigenous Units,66,66,70,72,75
+Number of Sub-post,45,53,53,54,53
+Persons per doctor 4,2132.03768115942,2179.151335311570,2239,2229,2156
+Ratio of beds per Nurse,1.1,1.1,0.8,1.1,1.1
+Ratio of Nurses per Doctor,3.6,3.5,4.3,4.5,5
+"Doctors per (10,000) persons",4.3,4.6,4.32,4.6,4.6380670004153300
+"Nurses per (10,000) persons",16.2,16.5,18.6,20.9,21.067829764598400
+"Pharmacists per (10,000) persons",0.5,0.6,0.6,0.6,0.6026866723703540
+"HA/BHW per (10,000) persons",8.1,8.3,8.4,8.9,8.948586896281550
+"Dungtshos per (10,000) persons",0.7,0.7,0.7,0.7,0.77
+"sMempas per (10,000) persons",1.4,1.5,1.6,1.9,1.9
+Persons per hospital bed,569.4166014095540,552,442,456,446.34444444444400
+Number of hospital beds available,1277,1310,1600,1640,1710
+"Hospital bed per 10,000 persons",17.561834297148400,18,22,22.5,22.4042219511588
+"Distribution of health facilities per (10,000) persons",3.8,3.8,3.8,4,3.8
+Proportion of population within 3 hrs walking distance of a health facility,>90,>90,>90,>90,>90
+Proportion of Deliveries attended by trained personnel(%),96.4,96.2,96.2,99.3,98.2
+Note:1Includes 10 bedded hospitals (BHU-I is upgraded to 10 bedded hospital),,,,,
+2Thromde Health Center (previously known as Satellite Clinics) included under Primary Health Center (previously known as BHU),,,,,
+3ORC (Inclusive of with shed & without shed),,,,,
+"4The population is based on Population Projections Bhutan, 2017 - 2047, NSB",,,,,
+"Source: Annual Health Bulletin 2022, MoH.",,,,,

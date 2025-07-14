@@ -1,0 +1,43 @@
+# --- LangChain Core & Community ---
+langchain==0.3.26
+langchain-core==0.3.66
+langchain-community==0.3.26
+langchain-huggingface>=0.1.0
+langchain-ollama>=0.2.0
+langsmith>=0.4.4
+
+# --- LLMs & Embeddings ---
+sentence-transformers>=2.2.2
+transformers>=4.38.2
+accelerate>=0.27.2
+bitsandbytes>=0.42.0
+torch>=2.2.0
+
+# --- Vector Stores ---
+chromadb>=0.4.24
+faiss-cpu>=1.7.4
+
+# --- Document Parsing (DOCX + TXT) ---
+unstructured>=0.15.0
+docx2txt
+python-docx
+
+# --- Excel & Structured Data ---
+eparse==0.7.3
+pandas>=2.0.0
+openpyxl
+sqlalchemy>=2.0.0
+duckdb
+sqlite-utils
+
+# --- UI / Dev Tools ---
+streamlit>=1.32.0
+tabulate
+tqdm
+python-dotenv
+
+# --- GPU & Diagnostics ---
+nvidia-ml-py3
+
+# --- Optional (for semantic chunking) ---
+nltk
