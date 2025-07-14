@@ -1,40 +1,48 @@
-# .github/workflows/ci.yml
-
 name: Multi-Agent CI Pipeline
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Uncomment below to run LangSmith eval nightly (at 1 AM UTC)
+  # schedule:
+  #   - cron: '0 1 * * *'
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     env:
+      PYTHONPATH: ${{ github.workspace }}
       LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
       LANGSMITH_PROJECT: ce0644ab-5c9d-4292-97dd-61a908799769
       LANGSMITH_TRACING: true
       LANGSMITH_ENDPOINT: https://api.smith.langchain.com
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}  # Leave this as a secret if used for eval
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     steps:
-      - uses: actions/checkout@v3
+      - name: 📦 Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: 🐍 Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: 🔧 Install dependencies
         run: |
           python -m venv venv
           source venv/bin/activate
+          pip install --upgrade pip
           pip install -r requirements.txt
           pip install pytest python-dotenv
 
-      - name: Run Pytest
+      - name: 🧪 Run unit tests (Pytest)
         run: |
           source venv/bin/activate
           pytest tests/test_agents.py
 
-      - name: Run LangSmith Evaluation
+      - name: 📊 Run LangSmith Evaluation (only on main)
         if: github.ref == 'refs/heads/main'
         run: |
           source venv/bin/activate
