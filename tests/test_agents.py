@@ -8,7 +8,7 @@ import pytest
 # Ensure the root project directory is in the import path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from agents.router_agent import router_chain, answer_query
+from router_agent import router_chain, answer_query
 
 # === Sample test cases (question, expected_snippet, expected_agent) ===
 test_cases = [
