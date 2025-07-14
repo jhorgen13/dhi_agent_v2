@@ -1,7 +1,13 @@
 # tests/test_agents.py
 
+import sys
+import os
 import re
 import pytest
+
+# Ensure the root project directory is in the import path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from agents.router_agent import router_chain, answer_query
 
 # === Sample test cases (question, expected_snippet, expected_agent) ===
@@ -15,17 +21,19 @@ test_cases = [
 
 @pytest.mark.parametrize("question, expected_snippet, expected_agent", test_cases)
 def test_agent_response_and_routing(question, expected_snippet, expected_agent):
-    """Test router routing and final answer content."""
+    """Test that the router picks the correct agent and the answer contains the expected content."""
+    # 1. Test routing classification
     route = router_chain.invoke({"query": question})
-    assert "destination" in route
-    assert route["destination"].upper() == expected_agent, f"Expected {expected_agent}, got {route['destination']}"
+    assert "destination" in route, "Router did not return a destination"
+    assert route["destination"].upper() == expected_agent, f"Router misclassified (expected {expected_agent})"
 
+    # 2. Test the final answer content
     result = answer_query(question)
     answer = result["answer"].lower()
-    assert expected_snippet.lower() in answer, f"Expected snippet '{expected_snippet}' not in answer: {answer}"
+    assert expected_snippet.lower() in answer, f"Expected snippet '{expected_snippet}' not found in answer: {answer}"
 
-    # Sanity format checks
+    # 3. Sanity format checks
     if expected_agent == "CSV":
-        assert re.search(r"\d", answer), "Expected a numeric value in CSV answer."
+        assert re.search(r"\d", answer), "Expected numeric data in CSV response"
     else:
-        assert len(answer.split()) > 3, "Expected descriptive answer for DOCX."
+        assert len(answer.split()) > 3, "DOCX answer appears too short"
