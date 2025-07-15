@@ -1,0 +1,147 @@
+Sex,Unnamed: 1,Unnamed: 2,Unnamed: 3,Unnamed: 4,Unnamed: 5,Unnamed: 6,Unnamed: 7,Unnamed: 8,Unnamed: 9,Unnamed: 10,Unnamed: 11,Unnamed: 12,Unnamed: 13
+(Number),,,,,,,,,,,,,
+Name of Diseases,Under 1 Year,,1 - 4 Years,,5 - 14 Years,,15 - 49 Years,,50-59 Years,,60+ Years,,Total
+,Male,Female,Male,Female,Male,Female,Male,Female,Male,Female,Male,Female,
+Infectious Diseases,,,,,,,,,,,,,
+Diarrhoea,972,867,3103,2521,3645,3211,4517,4647,728,736,1152,1259,27358
+Dysentery,68,62,170,143,229,194,616,608,135,127,179,160,2691
+Tuberculosis2,0,1,10,3,4,10,218,297,42,36,81,42,744
+Other Sepsis (includes Septicaemia),91,100,12,24,10,8,47,61,16,18,38,37,462
+Congenital Syphilis,2,8,0,0,0,0,0,0,0,0,0,0,10
+Genital Ulcer,0,1,0,1,53,37,67,43,11,5,3,4,225
+Syphilis,3,0,1,0,0,0,68,238,25,80,19,30,464
+Urethral/Vaginal Discharges,3,0,3,3,9,63,917,2643,90,441,33,210,4415
+Other Sexually Transmitted Disease (excludes HIV/AIDS),1,2,0,0,2,5,246,391,31,66,19,22,785
+Rickettsial Disease2,4,3,10,21,21,23,106,107,26,27,20,32,400
+"Viral, Protozoal & Helminthic Diseases",,,,,,,,,,,,,
+Chicken Pox,18,18,117,144,723,733,265,209,5,8,7,6,2253
+Acute Hepatitis A,0,2,2,4,2,5,13,11,0,1,0,4,44
+Acute Hepatitis B,0,0,0,0,0,0,42,22,8,7,5,4,88
+Other Acute Hepatitis (includes Hepatitis C&E),2,4,1,4,7,1,28,27,8,5,7,5,99
+Plasmoidum Falciparum Malaria,0,0,0,0,0,0,3,1,0,0,0,0,4
+Plasmodium Vivax Malaria,0,0,0,0,0,0,15,2,0,0,1,0,18
+Other Malaria,0,0,0,0,0,0,0,1,0,0,0,0,1
+Visceral Leishmaniasis (Kala-azar),0,0,0,0,0,0,2,1,0,0,0,0,3
+Intestinal Worms,329,2,64,78,281,242,469,551,102,78,82,75,2353
+Scabies,50,44,325,222,2026,1583,2046,1882,197,202,261,215,9053
+Streptococcus GroupA2,11,1,7,12,31,24,42,48,8,5,9,8,206
+"Other Infections (excludes ear, brain, STI)",242,234,508,484,764,803,1985,2429,295,337,380,371,8832
+Neoplasms [Only to be recorded at the JDWNRH/Regional Referral Hospitals],,,,,,,,,,,,,
+Oesophagus Cancer,0,0,0,0,1,0,4,4,6,8,24,3,50
+Stomach/ Gastric Cancer,0,0,0,0,0,0,12,13,38,40,113,69,285
+Colon Cancer,0,0,0,0,0,0,6,12,5,6,21,34,84
+Rectal Cancer,0,0,0,0,0,0,17,9,4,4,30,20,84
+Hepato-Biliary Cancer,0,0,0,0,0,0,1,0,1,0,7,6,15
+Pancreatic Cancer,0,0,0,0,0,0,1,2,3,4,7,4,21
+Breast Cancer,0,0,0,0,0,0,0,42,0,22,0,20,84
+Cervical Cancer,0,0,0,0,0,0,0,48,0,28,0,33,109
+Other Cancers,0,1,17,8,18,20,80,142,39,49,172,144,690
+Diseases of the Blood & Blood-forming Organs,,,,,,,,,,,,,
+Neoplasm (benign + CIS),2,3,8,11,14,18,107,353,27,28,37,40,648
+Nutritional Anaemia,22,16,84,70,275,479,1322,4422,351,617,566,787,9011
+Blood & Immune Disorders,3,6,20,10,25,56,192,396,56,65,90,80,999
+"Endocrine, Nutritional & Metabolic Diseases",,,,,,,,,,,,,
+Diabetes2,1,0,2,3,3,3,1340,1682,1427,1487,1559,1631,9138
+Malnutrition (excludes child clinic attendance),2,2,4,5,4,8,14,22,5,5,7,9,87
+Other Nutritional & Metabolic Disorders2,77,54,87,108,461,663,1026,1522,167,236,266,328,4995
+Mental & Behavioural Disorders,,,,,,,,,,,,,
+Dementia,0,0,0,0,0,0,8,5,0,1,7,13,34
+Mental and Behavioral Disorders due to Alcohol,0,0,0,0,2,1,1154,388,174,70,79,38,1906
+Mental and Behavioral Disorders due to Multiple Drug use & other use of Psychoactive substances,0,0,0,0,3,6,425,109,21,12,3,0,579
+Psychosis,0,0,0,0,5,15,445,294,50,71,35,56,971
+Depression,0,0,0,1,16,36,694,1116,150,200,83,114,2410
+Anxiety,1,1,1,1,47,114,1142,1953,223,312,123,213,4131
+Other Mental Disorders,2,1,28,16,72,56,575,584,93,103,78,108,1716
+Diseases of the Nervous System,,,,,,,,,,,,,
+Meningitis/Encephalitis,16,17,8,11,13,10,37,52,6,7,14,16,207
+Epilepsy2,11,10,29,40,68,65,849,941,104,94,76,75,2362
+Other Nervous Disorders (includes Peripheral disorders),151,142,522,512,3286,4501,13541,28759,3103,4458,4089,5165,68229
+Diseases of the Eye & Ear,,,,,,,,,,,,,
+Conjunctivitis,501,145,346,289,1244,1087,2837,3191,596,682,872,1007,12797
+Cataract2,3,1,7,8,25,34,320,375,144,114,338,331,1700
+Disorders of Refraction & Accommodation (Refractive Error in the Eye),2,10,9,17,274,509,1647,2618,492,613,620,521,7332
+Other Eye Disorders,233,283,649,590,2792,3036,10199,13422,2506,3204,4625,5693,47232
+Otitis Media,84,81,272,285,1248,1306,2162,2362,376,346,342,333,9197
+Other Ear Disorders,116,109,425,424,1581,1603,3231,3730,658,628,904,768,14177
+Diseases of the Circulatory System,,,,,,,,,,,,,
+Rheumatic Heart Disease2,2,1,3,4,13,8,100,172,77,94,193,134,801
+Hypertension,0,0,0,0,20,31,3691,5163,2809,3107,3990,4186,22997
+Ischaemic Heart Diseases2,0,0,0,0,0,1,44,21,17,19,59,48,209
+Cerebro-vascular Diseases2,1,0,3,3,4,2,94,82,67,33,186,145,620
+Bubo,0,0,0,0,1,0,30,41,4,3,12,10,101
+Other Circulatory Diseases,24,17,38,30,2463,167,947,1491,269,288,529,561,6824
+Diseases of the Respiratory System,,,,,,,,,,,,,
+Common Cold,4337,4465,10978,10542,18795,20255,24607,29486,4116,4576,5266,5449,142872
+Acute Pharyngitis/ Tonsillitis,185,211,1000,1010,4426,5245,7403,9663,1100,1161,911,1023,33338
+Pneumonia,457,399,645,579,182,124,165,178,45,57,159,191,3181
+Asthma,15,19,24,28,57,57,203,365,138,207,320,435,1868
+Other Respiratory  & Nose Diseases,1496,1392,2966,2836,5046,5454,8891,11605,1706,1768,2557,2891,48608
+Diseases of the Digestive System,,,,,,,,,,,,,
+Diseases of Teeth & Gums,58,65,926,991,4211,4709,8309,10496,1564,1742,2119,1950,37140
+Dental Caries,0,0,1118,1171,5653,6102,9951,14676,2195,2161,2570,2393,47990
+Peptic Ulcer Syndrome,14,13,124,143,1441,2123,12276,16812,2930,3400,3108,3648,46032
+Acute Appendicitis2,1,3,19,8,86,69,397,329,60,41,50,41,1104
+Alcoholic Liver Disease,0,0,0,0,1,1,866,563,317,244,248,152,2392
+Gall Bladder Diseases2,9,7,8,14,78,80,360,658,104,169,115,182,1784
+Other Diseases of the Digestive System,788,826,2830,2815,7824,9954,20009,27984,3785,4343,5217,6125,92500
+Diseases of the Skin & Subcutaneous Tissue,,,,,,,,,,,,,
+Skin Infections,812,787,3022,2799,9878,9258,15686,15280,2569,2245,2796,2488,67620
+Other Disorders of Skin and Subcutaneous Tissue,1428,1566,3659,3671,9302,9787,20123,25636,3621,3829,4522,4309,91453
+Diseases of the Musculo-skeletal System & Congenital Deformities,,,,,,,,,,,,,
+Arthritis & Arthrosis,8,3,13,32,156,167,1707,1866,763,861,1187,1200,7963
+Other Musculo-Skeletal Disorders,66,53,384,340,5261,2801,23082,26088,6333,6996,8247,8127,87778
+Diseases of the Genito-Urinary System,,,,,,,,,,,,,
+Cystitis2,1,2,11,12,247,26,133,686,42,66,35,45,1306
+Infections of the Breast (includes Puerperium),0,0,0,0,0,3,0,269,0,6,0,6,284
+Other diseases of the Breast,0,0,0,1,330,15,16,651,7,22,3,10,1055
+Pelvic Inflammatory Disease2,0,0,0,0,0,236,0,1913,0,456,0,170,2775
+Menstrual Disturbances,0,0,0,0,0,434,0,4201,0,606,0,179,5420
+"Other Kidney, UT/Genital Disorders",71,62,313,298,867,1183,4961,16986,1004,2224,1614,1947,31530
+"Pregnancy, Childbirth & the Puerperium",,,,,,,,,,,,,
+Abortions,0,0,0,0,0,3,0,1005,0,0,0,0,1008
+Pregnancy Induced Hypertension,0,0,0,0,0,1,0,549,0,0,0,0,550
+Ante-Partum Haemorrhage & Placenta Previa,0,0,0,0,0,1,0,237,0,0,0,0,238
+Malpresentation,0,0,0,0,0,0,0,183,0,0,0,0,183
+Prolonged Labour,0,0,0,0,0,0,0,218,0,0,0,0,218
+Obstructed Labour,0,0,0,0,0,0,0,53,0,0,0,0,53
+Post-Partum Heamorrhage,0,0,0,0,0,0,0,126,0,0,0,0,126
+Retained Placenta,0,0,0,0,0,0,0,69,0,0,0,0,69
+Puerperal Sepsis,0,0,0,0,0,0,0,104,0,0,0,0,104
+Other Complications of Pregnancy,0,0,0,0,0,11,0,7489,0,0,0,0,7500
+Certain Conditions Originating in the Perinatal Period,,,,,,,,,,,,,
+Low Birth Weight,162,187,0,0,0,0,0,0,0,0,0,0,349
+Foetal Death & Stillbirth,10,19,0,0,0,0,0,0,0,0,0,0,29
+Neonatal Death,48,41,0,0,0,0,0,0,0,0,0,0,89
+Conditions Originating in the Perinatal period,1949,1581,0,0,0,0,0,0,0,0,0,0,3530
+"Congenital Malformations, Deformations & Chromosomal Abnormalities",,,,,,,,,,,,,
+Oro-facial Clefts,17,7,0,0,0,0,0,0,0,0,0,0,24
+Gastrointestinal Tract defects,2,3,1,0,0,0,0,0,0,0,0,0,6
+Talipes Equinovarus,2,0,0,0,0,0,0,0,0,0,0,0,2
+Omphalocele,2,0,0,0,0,0,0,0,0,0,0,0,2
+Other Malformations,106,72,73,62,35,28,25,48,0,0,1,6,456
+"Injury, Poisoning & certain other consequences of External Causes",,,,,,,,,,,,,
+Mushroom Poisoning  (Toxic effect of other unspecified substances),0,1,5,2,12,11,42,43,5,6,13,4,144
+Transport Accidents,5,2,24,13,64,51,748,251,58,30,55,20,1321
+Accidental Falls,22,20,295,207,1131,579,1732,1081,300,254,431,374,6426
+Other Bites and Sting  (excludes dog bite),14,432,199,188,474,418,879,957,190,194,201,169,4315
+Dog Bites,15,10,304,237,1130,828,1797,1464,310,218,335,225,6873
+Accidental Drowning & Submersion,0,1,4,1,9,9,20,13,3,2,1,5,68
+Exposure to Electric Current,0,2,4,2,3,3,40,11,4,2,7,2,80
+"Contact with Heat & Hot substances and exposure to Smoke, Fire & Flames",361,359,204,184,197,166,386,422,79,49,66,70,2543
+Snake Bite,1,1,1,1,13,7,52,48,25,16,27,11,203
+Contact with Venomous Animals and Plants (excludes snake bite),1,2,6,4,11,9,28,28,4,1,8,3,105
+Accidental Poisoning by and Exposure to Noxious substances,1,2,14,9,15,19,21,23,6,2,2,4,118
+Intentional Self-harm by Poisoning,0,1,0,0,1,4,24,49,1,0,4,0,84
+Intentional Self-harm by Drowning & Submersion,0,0,0,0,0,0,2,2,0,0,0,0,4
+Assault by Poisoning (includes homicidal poisoning),0,0,2,0,0,0,3,3,0,0,0,0,8
+Assault by Drowning and Submersion,0,0,0,0,0,0,1,4,0,2,1,0,8
+Other Intentional Self-harm,0,0,0,0,8,9,62,47,11,7,9,4,157
+Work Related Injuries,11,4,161,115,1637,899,9384,4114,1569,772,1507,667,20840
+Others (injuries other than above  & unknown cause of injury),368,57,590,377,2782,1466,6574,3691,862,648,2276,562,20253
+Other Conditions,,,,,,,,,,,,,
+Complications of Health Care,18,20,34,43,71,53,326,485,51,56,56,56,1269
+"ANC, Immunization & Other Counselling",3923,3965,5277,4989,2791,3127,7517,28451,1589,2071,2742,2883,69325
+Total,19834,18911,42133,39834,106010,106562,248814,357416,53261,60747,71238,73253,1198013
+Note:1Morbidity refers to the condition of suffering from a disease or a medical condition.,,,,,,,,,,,,,
+"2For these diseases, the data are available only from hospitals.",,,,,,,,,,,,,
+"Source:  Annual Health Bulletin 2022, MoH.",,,,,,,,,,,,,

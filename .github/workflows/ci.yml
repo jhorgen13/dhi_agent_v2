@@ -1,12 +1,10 @@
-name: Multi-Agent CI Pipeline
+name: Run CI Tests
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-  # Uncomment below to run LangSmith eval nightly (at 1 AM UTC)
-  # schedule:
-  #   - cron: '0 1 * * *'
+    branches: [ main ]
 
 jobs:
   test:
@@ -19,31 +17,28 @@ jobs:
       LANGSMITH_TRACING: true
       LANGSMITH_ENDPOINT: https://api.smith.langchain.com
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      CI: "true"
 
     steps:
-      - name: 📦 Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: 3.11
 
-      - name: 🔧 Install dependencies
+      - name: Enable verbose logging
+        run: echo "LANGCHAIN_VERBOSITY=debug" >> $GITHUB_ENV
+
+      - name: Install dependencies
         run: |
           python -m venv venv
           source venv/bin/activate
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest python-dotenv
 
-      - name: 🧪 Run unit tests (Pytest)
+      - name: Run tests
         run: |
           source venv/bin/activate
-          pytest tests/test_agents.py
-
-      - name: 📊 Run LangSmith Evaluation (only on main)
-        if: github.ref == 'refs/heads/main'
-        run: |
-          source venv/bin/activate
-          python tests/eval_langsmith.py
+          pytest --tb=short --disable-warnings

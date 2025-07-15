@@ -1,0 +1,45 @@
+# === Python artifacts ===
+__pycache__/
+*.py[cod]
+*.pkl
+*.log
+
+# === Virtual environments ===
+venv/
+.env
+.env.*
+
+# === Databases and model files ===
+*.sqlite
+*.index
+*.ckpt
+
+# === LangChain / LangSmith traces ===
+*.jsonl
+*.traces/
+langsmith_logs/
+debug_logs/
+.openai/
+
+# === macOS-specific ===
+.DS_Store
+
+# === IDE/editor settings ===
+.vscode/
+.idea/
+*.swp
+*~
+
+# === Test outputs ===
+coverage/
+htmlcov/
+*.cover
+.tox/
+pytest_cache/
+.pytest_cache/
+
+# === Jupyter Notebook checkpoints ===
+.ipynb_checkpoints/
+
+# === Node (if using JS tools) ===
+node_modules/

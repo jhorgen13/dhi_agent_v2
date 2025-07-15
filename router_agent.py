@@ -1,9 +1,12 @@
 # === router_agent.py ===
+
 from pathlib import Path
 import re
 import json
+import os
 from typing import Dict
 from difflib import get_close_matches
+
 import pandas as pd
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
@@ -14,13 +17,21 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.schema import Document
 from langchain_ollama import OllamaLLM as Ollama
+from langchain.llms.fake import FakeListLLM  # For CI mocking
+
 from agents.docx_agent import build_docx_agent, get_retriever
 from agents.csv_agent import build_csv_agent
 from agents.web_agent import build_web_agent
 from utils.source_tracer import trace_sources
 
-# === LLM Setup ===
-llm = Ollama(model="qwen3:30b-a3b", temperature=0.1)
+
+# === LLM Setup with CI Fallback ===
+def get_llm():
+    if os.getenv("CI") == "true":
+        return FakeListLLM(responses=["CSV", "DOCX", "CSV", "DOCX"])
+    return Ollama(model="qwen3:32b", temperature=0.1)
+
+llm = get_llm()
 
 # === Embeddings ===
 embed_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
@@ -49,7 +60,10 @@ for name, path in label_to_path.items():
             continue
         schema = f"Table: {name}. Columns: {', '.join(df.columns)}"
         preview = df.head(2).to_csv(index=False)
-        doc = Document(page_content=f"{schema}\n\n{preview}", metadata={"label": name, "file_path": str(path)})
+        doc = Document(
+            page_content=f"{schema}\n\n{preview}",
+            metadata={"label": name, "file_path": str(path)}
+        )
         semantic_docs.append(doc)
     except Exception:
         continue
@@ -59,30 +73,58 @@ if not semantic_docs:
 
 vectorstore = FAISS.from_documents(semantic_docs, embed_model)
 
-# === Internal routing: DOCX vs CSV ===
-def classify_internal_doc_source(query: str) -> str:
-    try:
-        route = router_chain.invoke({"query": query})
-        return route.get("destination", "DOCX").upper()
-    except:
-        return "DOCX"
-
+# === Routing Prompt Template ===
 classification_prompt = PromptTemplate(
-    template='''You are a routing agent for internal documents.
+    template="""You are a routing agent that decides whether a user query should be answered using a DOCX or CSV agent.
 
-Classify the query:
-- "DOCX" → for descriptive, chapter-based, narrative answers
-- "CSV" → for numeric or data-table questions
+Rules:
+- Use "CSV" if the question requires a numeric value, projection, data lookup, or statistical comparison.
+- Use "DOCX" if the question asks for definitions, concepts, methodologies, frequencies, classifications, or descriptive narrative.
 
 Respond ONLY with:
 {{"destination": "CSV"}} or {{"destination": "DOCX"}}
 
+Examples:
+Q: What is Bhutan’s projected total population in 2030?
+A: {{"destination": "CSV"}}
+
+Q: How often is the Labour Force Survey conducted in Bhutan?
+A: {{"destination": "DOCX"}}
+
+Q: Who is considered an unemployed person in Bhutan’s labour statistics?
+A: {{"destination": "DOCX"}}
+
+Now classify:
 Q: {query}
-A:''',
+A:""",
     input_variables=["query"]
 )
 
-router_chain = classification_prompt | llm | RunnableLambda(lambda x: json.loads(re.search(r"\{.*?\}", x.strip()).group()))
+# === Safe JSON Parsing ===
+def safe_parse_json_output(x):
+    print(f"[DEBUG] LLM raw output: {x}")
+    try:
+        json_match = re.search(r"\{.*?\}", x.strip(), re.DOTALL)
+        if json_match:
+            return json.loads(json_match.group())
+        raise OutputParserException("No valid JSON object found", llm_output=x)
+    except Exception as e:
+        raise OutputParserException("Failed to parse JSON", llm_output=x) from e
+
+# === Router Chain ===
+router_chain = classification_prompt | llm | RunnableLambda(safe_parse_json_output)
+
+# === Internal Routing Logic ===
+def classify_internal_doc_source(query: str) -> str:
+    try:
+        raw_output = router_chain.invoke({"query": query})
+        print(f"[DEBUG] Raw routing model output: {raw_output}")
+        destination = raw_output.get("destination", "DOCX").upper()
+        print(f"[DEBUG] Final routing decision: {destination}")
+        return destination
+    except Exception as e:
+        print(f"[ERROR] Failed to classify route: {e}")
+        return "DOCX"
 
 # === Answer Handlers ===
 def answer_docx(input: Dict) -> Dict:
@@ -105,6 +147,7 @@ def answer_csv(input: Dict) -> Dict:
     if not matches:
         return {"answer": "No matching CSV table found.", "source_rows": None}
     best_label = matches[0].metadata["label"].strip()
+    print(f"[DEBUG] Selected CSV table: {best_label}")
     df_path = label_to_path.get(best_label)
     df = load_and_validate_csv(df_path)
     if df is None:
@@ -128,7 +171,7 @@ def answer_web(input: Dict) -> Dict:
     except Exception as e:
         return {"answer": f"Web search error: {e}", "source_rows": None}
 
-# === Unified Public Function ===
+# === Public Entry Point ===
 def answer_query(query: str, source_type: str = None) -> Dict:
     if not query.strip():
         return {"answer": "Please enter a question.", "source_rows": None}
