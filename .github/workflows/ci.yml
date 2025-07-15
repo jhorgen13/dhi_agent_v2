@@ -15,52 +15,6 @@ jobs:
     env:
       PYTHONPATH: ${{ github.workspace }}/dhi_agent_v2
       LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
-      LANGSMITH_PROJECT: ce0644ab-5c9d-4292-97dd-61a908799769
-      LANGSMITH_TRACING: true
-      LANGSMITH_ENDPOINT: https://api.smith.langchain.com
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-
-    steps:
-      - name: 📦 Checkout repository
-        uses: actions/checkout@v3
-
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: 🔧 Install dependencies
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pytest python-dotenv
-
-      - name: 🧪 Run unit tests (Pytest)
-        run: |
-          source venv/bin/activate
-          pytest tests/test_agents.py
-
-      - name: 📊 Run LangSmith Evaluation (only on main)
-        if: github.ref == 'refs/heads/main'
-        run: |
-          source venv/bin/activate
-          python tests/eval_langsmith.py
-name: Multi-Agent CI Pipeline
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    env:
-      PYTHONPATH: ${{ github.workspace }}/dhi_agent_v2
-      LANGSMITH_API_KEY: ${{ secrets.LANGSMITH_API_KEY }}
       LANGSMITH_PROJECT: dhi-agent-v2
       LANGSMITH_TRACING: true
       LANGSMITH_ENDPOINT: https://api.smith.langchain.com
