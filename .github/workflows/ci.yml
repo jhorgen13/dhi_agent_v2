@@ -17,6 +17,7 @@ jobs:
       LANGSMITH_TRACING: true
       LANGSMITH_ENDPOINT: https://api.smith.langchain.com
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      LANGCHAIN_VERBOSITY: debug
       CI: "true"
 
     steps:
@@ -28,17 +29,11 @@ jobs:
         with:
           python-version: 3.11
 
-      - name: Enable verbose logging
-        run: echo "LANGCHAIN_VERBOSITY=debug" >> $GITHUB_ENV
-
-      - name: Install dependencies
+      - name: Install dependencies and run tests
         run: |
           python -m venv venv
           source venv/bin/activate
-          python -m pip install --upgrade pip
+          pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Run tests
-        run: |
-          source venv/bin/activate
+          pip install pytest
           pytest --tb=short --disable-warnings
